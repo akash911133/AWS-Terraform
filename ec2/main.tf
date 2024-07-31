@@ -61,6 +61,8 @@ resource "aws_security_group" "my_custom_sg1" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]  // Allow HTTPS from anywhere
   }
+
+  depends_on = [aws_instance.My-Linux-1]
 }
 
 #############  variables we want
