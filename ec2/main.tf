@@ -37,19 +37,5 @@ resource "aws_instance" "My-Linux-1" {
 
 #############  variables we want
 
-variable "my_sg" {
-  default = "launch-wizard-1"
-  type    =  string
-}
-
-
-
 #############  Ouputs we want 
 
-output "public_ip" {
-  value = aws_instance.My-Linux-1.public_ip
-}
-
-output "private_ip" {
-  value = aws_instance.My-Linux-1.private_ip
-}
