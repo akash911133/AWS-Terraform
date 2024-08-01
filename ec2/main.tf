@@ -25,6 +25,7 @@ terraform {
 resource "aws_instance" "My-Linux-1" {
   ami           = "ami-068e0f1a600cd311c"
   instance_type = "t2.micro"
+  depends_on = [aws_security_group.my_custom_sg1]
   security_groups = [var.my_custom_sg1]
   tags = {
     Name           = "Akash Ughade"
@@ -33,6 +34,7 @@ resource "aws_instance" "My-Linux-1" {
     Specification  = "Hands-on Terraform & Ansible"
     Organization   = "NCS Indore"
   }
+
 }
 
 
@@ -62,7 +64,7 @@ resource "aws_security_group" "my_custom_sg1" {
     cidr_blocks = ["0.0.0.0/0"]  // Allow HTTPS from anywhere
   }
 
-  depends_on = [aws_instance.My-Linux-1]
+  
 }
 
 #############  variables we want
